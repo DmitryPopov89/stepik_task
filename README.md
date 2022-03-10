@@ -14,6 +14,6 @@ pip install -r requirements.txt
 #### Запуск тестов:
 
 ```commandline
-python -m pytest 
+python -m pytest -v --tb=line --language=en -m need_review 
 
 ```
