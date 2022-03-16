@@ -66,7 +66,7 @@ class BasePage:
         except NoAlertPresentException:
             print("No second alert presented")
 
-@allure.step('переходит на страницу Корзины')
+    @allure.step('переходит на страницу Корзины')
     def go_to_cart(self):
         button_go_to_cart = self.browser.find_element(*self.locators.GO_TO_CART)
         button_go_to_cart.click()
