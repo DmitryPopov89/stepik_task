@@ -1,3 +1,5 @@
+import allure
+
 from .base_page import BasePage
 from pages.locators import LoginPageLocators
 
@@ -5,6 +7,7 @@ from pages.locators import LoginPageLocators
 class LoginPage(BasePage):
     locators = LoginPageLocators()
 
+    @allure.step('проверка наличия на странице Форму авторизации и регистрации')
     def should_be_login_page(self):
         self.should_be_login_url()
         self.should_be_login_form()

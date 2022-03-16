@@ -1,5 +1,6 @@
 import math
 
+import allure
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, NoAlertPresentException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -42,10 +43,12 @@ class BasePage:
             return False
         return True
 
+    @allure.step('переходит на страницу авторизации')
     def go_to_login_page(self):
         login_link = self.browser.find_element(*self.locators.LOGIN_OR_REGISTER_LINK)
         login_link.click()
 
+    @allure.step('проверяет наличие кнопки для регистрации и авторизации ')
     def should_be_login_link(self):
         assert self.is_element_present(*self.locators.LOGIN_OR_REGISTER_LINK), "Login link is not presented"
 
@@ -63,6 +66,7 @@ class BasePage:
         except NoAlertPresentException:
             print("No second alert presented")
 
+@allure.step('переходит на страницу Корзины')
     def go_to_cart(self):
         button_go_to_cart = self.browser.find_element(*self.locators.GO_TO_CART)
         button_go_to_cart.click()
